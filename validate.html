@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>ONLINEPAYMENT</head>
+<script>
+function validateForm(){
+varcardNumber=document.getElementById("cardNumber").value;
+varexpiryDate=document.getElementById("expiryDate").value;
+varcvv=document.getElementById("cvv").value;
+//Validatecardnumber
+if(!cardNumber||!isNumeric(cardNumber)||cardNumber.length!==16){
+cardNumberError.textContent="Pleaseenteravalidcardnumber(16digits)";
+isValid=false;
+}else{
+cardNumberError.textContent="";
+}
+
+//Validateexpirydate
+if(!expiryDate||!isValidExpiryDate(expiryDate)){
+expiryDateError.textContent="Pleaseenteravalidexpirydate(MM/YY)";
+isValid=false;
+}else{
+expiryDateError.textContent="";
+}
+
+//ValidateCVV
+if(!cvv||!isNumeric(cvv)||cvv.length!==3){
+cvvError.textContent="PleaseenteravalidCVV(3digits)";
+isValid=false;
+}else{
+cvvError.textContent="";
+}
+
+returnisValid;
+alert('Formsubmittedsuccessfully');
+}
+</script>
+<body>
+<formid="paymentForm"onsubmit="returnvalidateForm()">
+<label for="cardNumber">CardNumber:</label>
+<input type="text"id="cardNumber"name="cardNumber"required>
+<label for="expiryDate">ExpiryDate:</label>
+<input type="text"id="expiryDate"name="expiryDate"placeholder="MM/YY"required>
+<label for="cvv">CVV:</label
+<input type="text"id="cvv"name="cvv"placeholder="EnterCV"required>
+<input type="submit"value="Pay">
+</form>
+</body>
+</html>
